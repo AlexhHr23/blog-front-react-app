@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import {Container, Row, Col} from "react-bootstrap"
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function App() {
+
+  const [apiData, setapiData] = useState(false)
+
+  useEffect(() => {
+    const  fetchData = async () =>  {
+
+      try {
+        const apiUrl = "http://localhost:8080";
+        const response = await axios.get(apiUrl);
+
+        if (response.status === 200) {
+          setapiData(response.data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    fetchData();
+  
+    return () => {
+
+    }
+  }, [])
+  
+  console.log(apiData)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Row>
+        <Col xs="12 py-2">
+        <h1 className="text-center fw-bold">
+          React application wuth go fiber backend
+        </h1>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
