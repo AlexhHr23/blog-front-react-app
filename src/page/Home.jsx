@@ -44,6 +44,9 @@ export const Home = () => {
   return (
     <Container>
       <Row>
+        <h3>
+          <Link to="/add" className="btn btn-primary">Add new</Link>
+        </h3>
         {apiData &&
           apiData.map((record, index) => (
             <Col xs="3" className="py-5 box" key={index}>
