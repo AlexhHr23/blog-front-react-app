@@ -62,7 +62,7 @@ export const Home = () => {
                 <Link to={`/edit/${record.id}`}>
                   <FontAwesomeIcon icon={faEdit} />
                 </Link>
-                <Link to="" className="text-danger">
+                <Link to={`/delete/${record.id}`} className="text-danger">
                   <FontAwesomeIcon icon={faTrash} />
                 </Link>
               </div>
