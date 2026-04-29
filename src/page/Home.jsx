@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Spinner } from "react-bootstrap";
+import { Container, Row, Col, Spinner, Image } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -56,6 +56,12 @@ export const Home = () => {
             <Col xs="3" className="py-5 box" key={index}>
               <div className="title">
                 <Link to={`/blog/${record.id}`}>{record.title}</Link>
+              </div>
+              <div>
+                <Image
+                  src={`${process.env.REACT_APP_API_ROOT}/${record.image}`}
+                  fluid
+                />
               </div>
               <div className="title">
                 <Link to={`/edit/${record.id}`}>

@@ -2,13 +2,14 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Image } from "react-bootstrap";
 
 export const Blog = () => {
     const params  = useParams();
   const [apiData, setapiData] = useState(false);
 
   useEffect(() => {
+
     const fetchData = async () => {
       try {
         const apiUrl = process.env.REACT_APP_API_ROOT + '/' + params.id;
@@ -32,6 +33,7 @@ export const Blog = () => {
     <Container>
         <Row>
             <Col xs="12"><h1>{apiData.title}</h1></Col>
+            <Col xs="6"><Image src={`${process.env.REACT_APP_API_ROOT}/${apiData.image}`} fluid/></Col>
             <Col xs="12"><p>{apiData.post}</p></Col>
         </Row>
   </Container>
