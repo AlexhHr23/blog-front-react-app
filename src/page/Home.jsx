@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Spinner } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import { library } from "@fortawesome/fontawesome-svg-core";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
